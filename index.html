@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <!--APPLE-->
+    <meta name="apple-mobile-web-capable" content="yes">
+    <meta name="mobile-web-aap-capable" content="yes">
+
+    <meta name="description" content="Aplicativo PWA para gerenciamento de patrimônio">
+    
+    
+    <title>Gerenciador de Patrimônio</title>
+
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" href="icon.png">
+
+</head>
+<body>
+    <div class="page">
+        <header class="site-header">
+            <img src="icon.png" alt="icon" class="site-icon">
+            <h1>Enigma de livro "Divina Comédia"</h1>
+            <button id="installBtn" class="btn-install">Instalar App</button>
+        </header>
+
+        <main class="main-card">
+            <section class="enigma">
+                <h2 class="enigma-title">Descubra a resposta</h2>
+                <p class="enigma-desc">Você encontrará a senha investigando o link abaixo. A resposta é uma palavra — escreva exatamente para validar.</p>
+
+                <a class="source-link" href="https://digital.bbm.usp.br/view/?45000025743&bbm/7950#page/10/mode/2up" target="_blank" rel="noopener">Abrir fonte: Divina Comédia (página indicada)</a>
+
+                <div class="clues">
+                    <pre>29/30 -   10:8
+44/45 -   2:5 / 10:11
+290/291 - 7:1 / 8:19
+300/301 - 3:26 / 23:28
+title  -  0:13</pre>
+                </div>
+
+                <form id="answerForm" class="answer-form">
+                    <input id="answerInput" type="text" placeholder="Escreva sua resposta aqui" autocomplete="off">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                </form>
+
+                <div class="controls">
+                    <button id="hintBtn" class="btn-hint">Pedir dica</button>
+                    <div class="score">29/30 - 10:8</div>
+                </div>
+            </section>
+            <section class="explain">
+                <p class="quote">"L'amor che move il sole e l'altre stelle" — Dante Alighieri</p>
+            </section>
+        </main>
+
+        <footer class="site-footer">Enigma: Divina Comédia — teste seu raciocínio</footer>
+
+        <!-- Hint Modal -->
+        <div id="modalOverlay" class="modal-overlay hidden">
+            <div class="modal">
+                <div id="modalContent" class="modal-content">
+                    <p>vai apelar pra dica, tenta sem ela</p>
+                </div>
+                <div class="modal-actions">
+                    <button id="modalCancel" class="btn-cancel">Cancelar</button>
+                    <button id="modalAccept" class="btn-accept">Aceitar Dica</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Overlay -->
+        <div id="successOverlay" class="modal-overlay hidden">
+            <div class="modal">
+                <div class="modal-content">
+                    <h3>Parabéns!</h3>
+                    <p>Resposta correta! Deseja começar de novo ou sair?</p>
+                </div>
+                <div class="modal-actions">
+                    <button id="restartBtn" class="btn-accept">Começar de novo</button>
+                    <button id="leaveBtn" class="btn-cancel">Deixar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <script src="app.js"></script>
+
+
+</body>
+</html>
